@@ -1,13 +1,15 @@
-import React from 'react';
+import React from 'react'
+import * as S from './styles'
 
-import { Container } from './styles';
+const Main = ({
+  title = 'Hapibot Challenge',
+  description = 'Hapibot Challenge Typescript animate'
+}) => (
+  <S.Wrapper>
+    <S.Title>{title}</S.Title>
+    <S.Description>{description}</S.Description>
 
-const Main = () => {
-  return (
-    <Container>
-      <h1>react avançado</h1>
-    </Container>
-  );
-};
+  </S.Wrapper>
+)
 
-export default Main;
+export default Main
