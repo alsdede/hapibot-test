@@ -1,8 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useUser } from '../../context/user';
-import * as S from './styles';
 import { useSocial } from 'context/social';
+import { useUser } from 'context/user';
+import { NavLink } from 'react-router-dom';
+import Status from '../Status';
+import * as S from './styles';
+
 
 const NavItems = [
   {
@@ -32,22 +34,39 @@ const NavItems = [
   },
 ]
 
-const Menu = () => {
+
+
+const MenuProfile = () => {
   const { user } = useUser();
   const { social } = useSocial();
-
+  const StatusItems = [
+    {
+      "name":'LIKES',
+      "value":social.likes
+    },
+    {
+      "name":'REVIEWS',
+      "value":social.reviews
+    },
+    {
+      "name":'LISTS',
+      "value":social.lists
+    },
+    {
+      "name":'MEDIA',
+      "value":social.media
+    },
+  ]
   return (
     <S.Wrapper>
-      <S.Top>
-
       <S.LeftSide>
         <S.UserAvatar src={user.avatar} />
         <S.WrapperUser>
-          <S.Username>{user.name}</S.Username>
+        <S.Username>{user.name}</S.Username>
           <S.NavMenu>
             {NavItems.map(item =>(
               <S.NavItem key={item.name}>
-                <NavLink  to={item.path} activeClassName="active">{item.name}</NavLink >
+                <NavLink  to={item.path}>{item.name}</NavLink >
               </S.NavItem>
             )
             )}
@@ -56,50 +75,32 @@ const Menu = () => {
       </S.LeftSide>
       <S.RightSide>
         <S.Status>
-          <S.StatusWrapper>
-            <S.StatusValue>23k</S.StatusValue>
-            <S.StatusName>{social.likes}</S.StatusName>
-          </S.StatusWrapper>
-          <S.StatusWrapper>
-            <S.StatusValue>1.2k</S.StatusValue>
-            <S.StatusName>REVIEWS</S.StatusName>
-          </S.StatusWrapper>
-          <S.StatusWrapper>
-            <S.StatusValue>70</S.StatusValue>
-            <S.StatusName>LISTS</S.StatusName>
-          </S.StatusWrapper>
-          <S.StatusWrapper>
-            <S.StatusValue>162</S.StatusValue>
-            <S.StatusName>MEDIA</S.StatusName>
-          </S.StatusWrapper>
+         {StatusItems.map(item =>(
+           <Status  title={item.name} value={item.value} />
+         ))}
         </S.Status>
-      </S.RightSide>
-      <S.BorderBottom/>
-            </S.Top>
 
-        <S.Bottom>
-      <S.OutsideLinks>
+        <S.OutsideLinks>
           <S.OutsideItem
             href="#"
             style={{ backgroundColor: 'rgba(255,0,0,0.5)' }}
-            ></S.OutsideItem>
+          ></S.OutsideItem>
           <S.OutsideItem
             href="#"
             style={{ backgroundColor: 'rgba(60,255,0,0.5)' }}
-            ></S.OutsideItem>
+          ></S.OutsideItem>
           <S.OutsideItem
             href="#"
             style={{ backgroundColor: 'rgba(0,19,255,0.5)' }}
-            ></S.OutsideItem>
+          ></S.OutsideItem>
           <S.OutsideItem
             href="#"
             style={{ backgroundColor: 'rgba(255,219,0,0.5)' }}
-            ></S.OutsideItem>
+          ></S.OutsideItem>
         </S.OutsideLinks>
-            </S.Bottom>
-
+      </S.RightSide>
     </S.Wrapper>
   );
 };
 
-export default Menu;
+export default MenuProfile;

@@ -15,11 +15,10 @@ export const WrapperContainer = styled.div`
   height: 100%;
   background: linear-gradient(180deg, rgba(0, 33, 38, 0.3) 0%, #001113 100%);
 
-`;
 
+`;
 export const BackgroundMenu = styled.div`
   bottom:-80px;
-
   position: absolute;
   background: linear-gradient(
     90deg,
@@ -29,4 +28,18 @@ export const BackgroundMenu = styled.div`
   height: 72px;
   width: 100%;
   z-index:2;
+  opacity:0;
+  animation: animateBackgroundMenu 0.3s ease-in-out;
+
+@keyframes animateBackgroundMenu {
+      from {
+        bottom: -80px;
+        opacity:1;
+      }
+      to {
+        opacity:0;
+        bottom: 0;
+
+      }
+    }
 `;

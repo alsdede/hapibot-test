@@ -14,9 +14,11 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    height:100vh;
     font-family: ${theme.font.family};
     font-size: ${theme.font.sizes.medium};
     background: ${theme.colors.mainBg};
+    overflow:hidden;
   }
 
   `}
