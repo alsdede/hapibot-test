@@ -42,21 +42,31 @@ const MenuProfile = () => {
   const StatusItems = [
     {
       "name":'LIKES',
-      "value":social.likes
+      "value":social.likes/1000 + "k"
     },
     {
       "name":'REVIEWS',
-      "value":social.reviews
+      "value":social.reviews/1000 + "k"
     },
     {
       "name":'LISTS',
-      "value":social.lists
+      "value":String(social.lists)
     },
     {
       "name":'MEDIA',
-      "value":social.media
+      "value":String(social.media)
     },
   ]
+
+  const formatValue = (num:number) => {
+    let aux ='';
+    let aux2 = Number(num);
+    if(aux2 >= 1000){
+      aux = String(aux2/1000 )+ "k";
+      return aux;
+    }
+    return num;
+  }
   return (
     <S.Wrapper>
       <S.LeftSide>
@@ -75,7 +85,7 @@ const MenuProfile = () => {
       </S.LeftSide>
       <S.RightSide>
         <S.Status>
-         {StatusItems.map(item =>(
+         {social && StatusItems.map(item =>(
            <Status  title={item.name} value={item.value} />
          ))}
         </S.Status>

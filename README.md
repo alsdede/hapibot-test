@@ -2,6 +2,7 @@ Hapibot - Challenge
 
 [Create React App](https://github.com/facebook/create-react-app).
 [Styled-Components]().
+[Context API]()
 [Jest]().
 [React-Test-Library]().
 [Storybook]().
@@ -9,8 +10,10 @@ Hapibot - Challenge
 [Editorconfig]().
 [Eslint]().
 [Prettier]().
+[Apollo]().
+[Graphql]().
 
-## Available Scripts
+## Start Project
 
 In the project directory, you can run:
 
@@ -29,3 +32,10 @@ Builds the app for production to the `build` folder.<br />
 ## `yarn generate [name]`
 
 Create a new component with plop
+
+
+
+## Nexts steps
+[ ] Responsive
+[ ] Coverage all tests
+[ ] Coverage all stories

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useUser } from '../../context/user';
 import * as S from './styles';
 import { useSocial } from 'context/social';
+import Status from 'components/Status';
 
 const NavItems = [
   {
@@ -35,7 +36,33 @@ const NavItems = [
 const Menu = () => {
   const { user } = useUser();
   const { social } = useSocial();
+  const StatusItems = [
+    {
+      "name":'LIKES',
+      "value":social.likes/1000 + "k"
+    },
+    {
+      "name":'REVIEWS',
+      "value":social.reviews/1000 + "k"
+    },
+    {
+      "name":'LISTS',
+      "value":String(social.lists)
+    },
+    {
+      "name":'MEDIA',
+      "value":String(social.media)
+    },
+  ]
 
+  const formatValue = (num:number) => {
+    let aux ='';
+    if(num >= 1000){
+      aux = String(num/1000 )+ "k";
+      return aux;
+    }
+    return num;
+  }
   return (
     <S.Wrapper>
       <S.Top>
@@ -55,23 +82,10 @@ const Menu = () => {
         </S.WrapperUser>
       </S.LeftSide>
       <S.RightSide>
-        <S.Status>
-          <S.StatusWrapper>
-            <S.StatusValue>23k</S.StatusValue>
-            <S.StatusName>{social.likes}</S.StatusName>
-          </S.StatusWrapper>
-          <S.StatusWrapper>
-            <S.StatusValue>1.2k</S.StatusValue>
-            <S.StatusName>REVIEWS</S.StatusName>
-          </S.StatusWrapper>
-          <S.StatusWrapper>
-            <S.StatusValue>70</S.StatusValue>
-            <S.StatusName>LISTS</S.StatusName>
-          </S.StatusWrapper>
-          <S.StatusWrapper>
-            <S.StatusValue>162</S.StatusValue>
-            <S.StatusName>MEDIA</S.StatusName>
-          </S.StatusWrapper>
+      <S.Status>
+         {social && StatusItems.map(item =>(
+           <Status  title={item.name} value={item.value} />
+         ))}
         </S.Status>
       </S.RightSide>
       <S.BorderBottom/>

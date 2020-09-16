@@ -1,5 +1,4 @@
 import React from 'react'
-
 import MenuProfile from '../../components/MenuProfile'
 import * as S from './styles'
 

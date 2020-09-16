@@ -3,10 +3,10 @@ import {useQuery} from '@apollo/client';
 import GET_SOCIALDATA from '../graphql/queries/status';
 
 interface SocialData {
-    likes:string
-    reviews:string
-    lists:string
-    media:string
+    likes:number
+    reviews:number
+    lists:number
+    media:number
 }
 interface SocialContextData {
   social:SocialData
