@@ -1,5 +1,5 @@
-import React, { createContext, useCallback, useState, useContext,useEffect } from 'react';
-import {gql,useQuery} from '@apollo/client';
+import React, { createContext, useState, useContext,useEffect } from 'react';
+import {useQuery} from '@apollo/client';
 import GET_USERDATA from '../graphql/queries/user';
 
 interface UserData {
@@ -19,7 +19,7 @@ export const UserContext = createContext<UserContextData>(
 
 export const UserProvider:React.FC= ({ children }) => {
   const [user, setUser] = useState<UserData>({} as UserData);
-  const {loading,error,data} = useQuery(GET_USERDATA);
+  const {data} = useQuery(GET_USERDATA);
 
   useEffect(()=>{
     if(data){

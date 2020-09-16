@@ -79,10 +79,12 @@ export const UserAvatar = styled.img`
       }
 `;
 export const Username = styled.span`
-  color: white;
+  ${({theme})=>css`
+  color: ${theme.colors.white};
+  font-weight: ${theme.font.bold};
+  font-size:${theme.font.sizes.large};
+  `}
 
-  font-weight: bold;
-  font-size:18px;
   z-index: 99;
   animation: animateName 0.4s ease-in-out;
 
@@ -189,18 +191,5 @@ export const StatusWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-left: 56px;
-
-`;
-export const StatusValue = styled.span`
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  transition: all 0.4s ease-in-out;
 `;
 
-export const StatusName = styled.span`
-  font-size: 10px;
-  color: white;
-
-
-`;

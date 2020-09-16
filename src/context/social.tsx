@@ -18,7 +18,7 @@ export const SocialContext = createContext<SocialContextData>(
 
 export const SocialProvider:React.FC= ({ children }) => {
   const [social, setSocial] = useState<SocialData>({} as SocialData);
-  const {loading,error,data} = useQuery(GET_SOCIALDATA);
+  const {data} = useQuery(GET_SOCIALDATA);
 
   useEffect(()=>{
     if(data){

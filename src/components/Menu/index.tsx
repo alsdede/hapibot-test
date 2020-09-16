@@ -55,14 +55,7 @@ const Menu = () => {
     },
   ]
 
-  const formatValue = (num:number) => {
-    let aux ='';
-    if(num >= 1000){
-      aux = String(num/1000 )+ "k";
-      return aux;
-    }
-    return num;
-  }
+
   return (
     <S.Wrapper>
       <S.Top>
@@ -84,7 +77,9 @@ const Menu = () => {
       <S.RightSide>
       <S.Status>
          {social && StatusItems.map(item =>(
-           <Status  title={item.name} value={item.value} />
+           <div key={item.name}>
+             <Status  title={item.name} value={item.value} />
+           </div>
          ))}
         </S.Status>
       </S.RightSide>

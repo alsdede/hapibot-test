@@ -33,9 +33,17 @@ Builds the app for production to the `build` folder.<br />
 
 Create a new component with plop
 
+##  TO DO TASKS
 
+- [X] INITIAL CONFIG, ESLINT, PRETTIER, EDITORCONFIG, TYPESCRIPT,STORYBOOK,JEST,PLOP
+- [X] PROFILE, LISTS,
+- [X] ANIMATE MENU
+- [X] Config Context
+- [X] Context Logic
+- [X] CONNECT TO API - GRAPHQL
+- [X] Check Layout
 
 ## Nexts steps
-[ ] Responsive
-[ ] Coverage all tests
-[ ] Coverage all stories
+- [ ] Responsive to mobile
+- [ ] Coverage all tests
+- [ ] Coverage all stories

@@ -58,15 +58,7 @@ const MenuProfile = () => {
     },
   ]
 
-  const formatValue = (num:number) => {
-    let aux ='';
-    let aux2 = Number(num);
-    if(aux2 >= 1000){
-      aux = String(aux2/1000 )+ "k";
-      return aux;
-    }
-    return num;
-  }
+
   return (
     <S.Wrapper>
       <S.LeftSide>
@@ -86,7 +78,9 @@ const MenuProfile = () => {
       <S.RightSide>
         <S.Status>
          {social && StatusItems.map(item =>(
+           <div key={item.name}>
            <Status  title={item.name} value={item.value} />
+         </div>
          ))}
         </S.Status>
 
