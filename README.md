@@ -14,7 +14,10 @@ Hapibot - Challenge
 [Graphql]().
 
 ## Start Project
+Running
+https://hapibot-challenge.netlify.app
 
+or
 In the project directory, you can run:
 
 ### `yarn start`
